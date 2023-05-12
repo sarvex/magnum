@@ -283,9 +283,7 @@ class MagnumVectorColor(MagnumTypePrinter):
         super(MagnumVectorColor, self).__init__(val)
 
     def to_string(self):
-        components = []
-        for i in range(self.dimensions):
-            components.append(str(self.val['_data'][i]))
+        components = [str(self.val['_data'][i]) for i in range(self.dimensions)]
         return f"({', '.join(components)})"
 
 magnum_printers: gdb.printing.RegexpCollectionPrettyPrinter | None = None

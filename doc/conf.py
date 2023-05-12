@@ -58,7 +58,7 @@ def _doxygen_ignore(code: str):
                 if code[j] == '(': depth += 1
                 elif code[j] == ')': depth -= 1
                 if depth == 0: break
-            assert depth == 0, "unmatched %s) parentheses in %s" % (macro, code)
+            assert depth == 0, f"unmatched {macro}) parentheses in {code}"
             code = code[:i] + replace + code[j+1:]
     return code
 

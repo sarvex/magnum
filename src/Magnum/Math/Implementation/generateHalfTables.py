@@ -125,13 +125,34 @@ namespace Magnum { namespace Math { namespace {
 
 def print32bit(table):
     for i, v in enumerate(table):
-        print("0x{:08x}".format(v), end=",\n    " if not (i + 1) % 6 else ", " if not i == len(table) - 1 else "")
+        print(
+            "0x{:08x}".format(v),
+            end=",\n    "
+            if not (i + 1) % 6
+            else ", "
+            if i != len(table) - 1
+            else "",
+        )
 def print16bit(table):
     for i, v in enumerate(table):
-        print("0x{:04x}".format(v), end=",\n    " if not (i + 1) % 9 else ", " if not i == len(table) - 1 else "")
+        print(
+            "0x{:04x}".format(v),
+            end=",\n    "
+            if not (i + 1) % 9
+            else ", "
+            if i != len(table) - 1
+            else "",
+        )
 def print8bit(table):
     for i, v in enumerate(table):
-        print("0x{:02x}".format(v), end=",\n    " if not (i + 1) % 12 else ", " if not i == len(table) - 1 else "")
+        print(
+            "0x{:02x}".format(v),
+            end=",\n    "
+            if not (i + 1) % 12
+            else ", "
+            if i != len(table) - 1
+            else "",
+        )
 
 print("constexpr UnsignedInt HalfMantissaTable[2048] = {\n    ", end="")
 print32bit(mantissa_table)
